@@ -1,0 +1,22 @@
+create user 'quiz'@'localhost' IDENTIFIED BY 'questions';
+
+GRANT ALL PRIVILEGES ON quiz.* to 'quiz'@'localhost'
+
+create database quiz;
+
+create table questions (
+    id varchar(20),
+    question varchar(200));
+
+insert into questions values ('Q1', 'Can you please introduce yourself to us?'),('Q2', 'Do you watch any series? If so, please tell us about the recent series you have watched.'), ('Q3', 'Are you a night owl? If so, what keeps you up at night?');
+
+create table answers (
+    id varchar(100) NOT NULL PRIMARY KEY,
+    user_id varchar(100),
+    question_id varchar(20),
+    question varchar(200),
+    response longblob,
+    response_text text,
+    created_date_time datetime,
+    updated_date_time datetime);
+
